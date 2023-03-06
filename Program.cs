@@ -1,4 +1,5 @@
 using FleksTanya12d.Data;
+using FleksTanya12d.Services;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
@@ -16,7 +17,8 @@ namespace FleksTanya12d
                 options.UseSqlServer(connectionString));
             builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
-            builder.Services.AddDefaultIdentity<User>(options => options.SignIn.RequireConfirmedAccount = true)
+            builder.Services.AddDefaultIdentity<User>(options => options.SignIn.RequireConfirmedAccount = false)
+                .AddRoles<IdentityRole>()
                 .AddEntityFrameworkStores<FleksDbContext>();
             builder.Services.AddControllersWithViews();
             builder.Services.AddControllers(options => options.SuppressImplicitRequiredAttributeForNonNullableReferenceTypes = true);
@@ -34,6 +36,9 @@ namespace FleksTanya12d
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
+            app.PrepareDataBase().Wait(); ///!!!! na THB code
+
+
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
