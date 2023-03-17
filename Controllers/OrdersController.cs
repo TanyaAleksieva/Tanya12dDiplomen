@@ -6,12 +6,16 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using FleksTanya12d.Data;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Authorization;
 
 namespace FleksTanya12d.Controllers
 {
+    [Authorize]
     public class OrdersController : Controller
     {
         private readonly FleksDbContext _context;
+        private readonly UserManager<User> _userManager;
 
         public OrdersController(FleksDbContext context)
         {
@@ -21,8 +25,20 @@ namespace FleksTanya12d.Controllers
         // GET: Orders
         public async Task<IActionResult> Index()
         {
-            var fleksDbContext = _context.Orders.Include(o => o.Products).Include(o => o.Users);
-            return View(await fleksDbContext.ToListAsync());
+            if (User.IsInRole("Admin"))
+            {
+                var fleksDbContext = _context.Orders.Include(o => o.Products).Include(o => o.Users);
+                return View(await fleksDbContext.ToListAsync());
+            }
+            else
+            {
+                var fleksDbContext = _context.Orders
+                    .Include(o => o.Products)
+                    .Include(o => o.Users)
+                    .Where(o => o.UserId == _userManager.GetUserId(User));
+                return View(await fleksDbContext.ToListAsync());
+            }
+            
         }
 
         // GET: Orders/Details/5
@@ -48,8 +64,8 @@ namespace FleksTanya12d.Controllers
         // GET: Orders/Create
         public IActionResult Create()
         {
-            ViewData["ProductId"] = new SelectList(_context.Products, "Id", "Id");
-            ViewData["UserId"] = new SelectList(_context.Users, "Id", "Id");
+            ViewData["ProductId"] = new SelectList(_context.Products, "Id", "Model");
+           // ViewData["UserId"] = new SelectList(_context.Users, "Id", "Id");
             return View();
         }
 
@@ -66,8 +82,8 @@ namespace FleksTanya12d.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["ProductId"] = new SelectList(_context.Products, "Id", "Id", order.ProductId);
-            ViewData["UserId"] = new SelectList(_context.Users, "Id", "Id", order.UserId);
+            ViewData["ProductId"] = new SelectList(_context.Products, "Id", "Model", order.ProductId);
+            //ViewData["UserId"] = new SelectList(_context.Users, "Id", "Id", order.UserId);
             return View(order);
         }
 
@@ -84,8 +100,8 @@ namespace FleksTanya12d.Controllers
             {
                 return NotFound();
             }
-            ViewData["ProductId"] = new SelectList(_context.Products, "Id", "Id", order.ProductId);
-            ViewData["UserId"] = new SelectList(_context.Users, "Id", "Id", order.UserId);
+            ViewData["ProductId"] = new SelectList(_context.Products, "Id", "Model", order.ProductId);
+            //ViewData["UserId"] = new SelectList(_context.Users, "Id", "Id", order.UserId);
             return View(order);
         }
 
@@ -94,7 +110,7 @@ namespace FleksTanya12d.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,ProductId,UserId,Quantity,OrderedOn")] Order order)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,ProductId,Quantity,OrderedOn")] Order order)
         {
             if (id != order.Id)
             {
@@ -105,6 +121,8 @@ namespace FleksTanya12d.Controllers
             {
                 try
                 {
+                    order.UserId = _userManager.GetUserId(User);
+                    //order.OrderedOn = DateTime.Now();
                     _context.Update(order);
                     await _context.SaveChangesAsync();
                 }
@@ -121,8 +139,8 @@ namespace FleksTanya12d.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["ProductId"] = new SelectList(_context.Products, "Id", "Id", order.ProductId);
-            ViewData["UserId"] = new SelectList(_context.Users, "Id", "Id", order.UserId);
+            ViewData["ProductId"] = new SelectList(_context.Products, "Id", "Model", order.ProductId);
+            //ViewData["UserId"] = new SelectList(_context.Users, "Id", "Id", order.UserId);
             return View(order);
         }
 

@@ -6,9 +6,11 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using FleksTanya12d.Data;
+using Microsoft.AspNetCore.Authorization;
 
 namespace FleksTanya12d.Controllers
 {
+    //[Authorize(Roles ="Admin")]
     public class ProductsController : Controller
     {
         private readonly FleksDbContext _context;
@@ -47,11 +49,12 @@ namespace FleksTanya12d.Controllers
         }
 
         // GET: Products/Create
+        [Authorize(Roles = "Admin")]
         public IActionResult Create()
         {
-            ViewData["CategoryId"] = new SelectList(_context.Categories, "Id", "Id");
-            ViewData["SportId"] = new SelectList(_context.Sports, "Id", "Id");
-            ViewData["TypeId"] = new SelectList(_context.Types, "Id", "Id");
+            ViewData["CategoryId"] = new SelectList(_context.Categories, "Id", "CategoryName");  //
+            ViewData["SportId"] = new SelectList(_context.Sports, "Id", "SportName");  //
+            ViewData["TypeId"] = new SelectList(_context.Types, "Id", "TypeName");  //
             return View();
         }
 
@@ -68,13 +71,14 @@ namespace FleksTanya12d.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["CategoryId"] = new SelectList(_context.Categories, "Id", "Id", product.CategoryId);
-            ViewData["SportId"] = new SelectList(_context.Sports, "Id", "Id", product.SportId);
-            ViewData["TypeId"] = new SelectList(_context.Types, "Id", "Id", product.TypeId);
+            ViewData["CategoryId"] = new SelectList(_context.Categories, "Id", "CategoryName", product.CategoryId);  //
+            ViewData["SportId"] = new SelectList(_context.Sports, "Id", "SportName", product.SportId);
+            ViewData["TypeId"] = new SelectList(_context.Types, "Id", "TypeName", product.TypeId);
             return View(product);
         }
 
         // GET: Products/Edit/5
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null || _context.Products == null)
@@ -87,9 +91,9 @@ namespace FleksTanya12d.Controllers
             {
                 return NotFound();
             }
-            ViewData["CategoryId"] = new SelectList(_context.Categories, "Id", "Id", product.CategoryId);
-            ViewData["SportId"] = new SelectList(_context.Sports, "Id", "Id", product.SportId);
-            ViewData["TypeId"] = new SelectList(_context.Types, "Id", "Id", product.TypeId);
+            ViewData["CategoryId"] = new SelectList(_context.Categories, "Id", "CategoryName", product.CategoryId); //
+            ViewData["SportId"] = new SelectList(_context.Sports, "Id", "SportName", product.SportId);
+            ViewData["TypeId"] = new SelectList(_context.Types, "Id", "TypeName", product.TypeId);
             return View(product);
         }
 
@@ -125,13 +129,14 @@ namespace FleksTanya12d.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["CategoryId"] = new SelectList(_context.Categories, "Id", "Id", product.CategoryId);
-            ViewData["SportId"] = new SelectList(_context.Sports, "Id", "Id", product.SportId);
-            ViewData["TypeId"] = new SelectList(_context.Types, "Id", "Id", product.TypeId);
+            ViewData["CategoryId"] = new SelectList(_context.Categories, "Id", "CategoryName", product.CategoryId);  //
+            ViewData["SportId"] = new SelectList(_context.Sports, "Id", "SportName", product.SportId);
+            ViewData["TypeId"] = new SelectList(_context.Types, "Id", "TypeName", product.TypeId);
             return View(product);
         }
 
-        // GET: Products/Delete/5
+        // GET: Products/Delete/5-
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null || _context.Products == null)
