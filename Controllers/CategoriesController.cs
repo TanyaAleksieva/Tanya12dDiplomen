@@ -6,9 +6,12 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using FleksTanya12d.Data;
+using Microsoft.AspNetCore.Authorization;
+using System.Data;
 
 namespace FleksTanya12d.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class CategoriesController : Controller
     {
         private readonly FleksDbContext _context;

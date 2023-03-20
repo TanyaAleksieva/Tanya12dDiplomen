@@ -1,4 +1,8 @@
-﻿<!DOCTYPE html>
+﻿@using FleksTanya12d.Data;
+@using Microsoft.AspNetCore.Identity;
+@inject UserManager<User> userManager;
+@inject SignInManager<User> signInManager;
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -25,6 +29,20 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
                         </li>
+                        @if (signInManager.IsSignedIn(User))
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Orders" asp-action="Index">Поръчки</a>
+                            </li>
+                            if (User.IsInRole("Admin"))
+                            {
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="TypeProducts" asp-action="Index">Тип на продуктите</a>
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="CaterogiesProducts" asp-action="Index">Категории на продуктите</a>
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="SportProducts" asp-action="Index">Вид спорт</a>
+                                </li>
+                            }
+                        }
                     </ul>
                     <partial name="_LoginPartial" />
                 </div>
