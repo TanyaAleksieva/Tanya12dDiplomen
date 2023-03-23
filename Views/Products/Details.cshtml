@@ -1,13 +1,13 @@
 ﻿@model FleksTanya12d.Data.Product
 
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = "Детайли";
 }
 
-<h1>Details</h1>
+<h1>Детайли</h1>
 
 <div>
-    <h4>Product</h4>
+    <h4>Продукт</h4>
     <hr />
     <dl class="row">
         <dt class = "col-sm-2">
@@ -67,6 +67,6 @@
     </dl>
 </div>
 <div>
-    <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Редактиране" asp-route-id="@Model?.Id">Реактиране</a> |
+    <a asp-action="Index">Обратно към листа</a>
 </div>
