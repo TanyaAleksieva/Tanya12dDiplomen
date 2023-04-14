@@ -17,9 +17,10 @@ namespace FleksTanya12d.Controllers
         private readonly FleksDbContext _context;
         private readonly UserManager<User> _userManager;
 
-        public OrdersController(FleksDbContext context)
+        public OrdersController(FleksDbContext context, UserManager<User> userManager)
         {
             _context = context;
+            _userManager = userManager;
         }
 
         // GET: Orders
@@ -69,16 +70,15 @@ namespace FleksTanya12d.Controllers
             return View();
         }
 
-        // POST: Orders/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,ProductId,UserId,Quantity,OrderedOn")] Order order)
+        public async Task<IActionResult> Create([Bind("ProductId,Quantity,OrderedOn")] Order order)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(order);
+                order.OrderedOn = DateTime.Now;
+                order.UserId = _userManager.GetUserId(User);
+                _context.Orders.Add(order);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }

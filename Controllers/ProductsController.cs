@@ -58,16 +58,15 @@ namespace FleksTanya12d.Controllers
             return View();
         }
 
-        // POST: Products/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Model,Size,Quantity,Description,CategoryId,TypeId,SportId,Price,Image")] Product product)
+        public async Task<IActionResult> Create([Bind("Model,Size,Quantity,Description,CategoryId,TypeId,SportId,Price,Image")] Product product)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(product);
+                //product.DateRegister = DateTime.Now;
+                //product.DataCreated = DateTime.Now;
+                _context.Products.Add(product);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
@@ -113,7 +112,8 @@ namespace FleksTanya12d.Controllers
             {
                 try
                 {
-                    _context.Update(product);
+                    //product.DateRegister = DateTime.Now;
+                    _context.Products.Update(product);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)

@@ -51,12 +51,9 @@ namespace FleksTanya12d.Controllers
             return View();
         }
 
-        // POST: Sports/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,SportName,Description")] Sport sport)
+        public async Task<IActionResult> Create([Bind("SportName,Description")] Sport sport)
         {
             if (ModelState.IsValid)
             {

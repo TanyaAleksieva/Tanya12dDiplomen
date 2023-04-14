@@ -51,15 +51,13 @@ namespace FleksTanya12d.Controllers
             return View();
         }
 
-        // POST: Types/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,TypeName")] FleksTanya12d.Data.Type type)
+        public async Task<IActionResult> Create([Bind("TypeName")] FleksTanya12d.Data.Type type)
         {
             if (ModelState.IsValid)
             {
+               
                 _context.Add(@type);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));

@@ -24,5 +24,8 @@ namespace FleksTanya12d.Data
         public string Image { get; set; }
         DateTime DateRegister { get; set; }
         public virtual ICollection<Order> Orders { get; set; }
+
+        ///
+       // public DateTime OrderedOn { get; internal set; }
     }
 }
