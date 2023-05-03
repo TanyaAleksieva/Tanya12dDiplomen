@@ -38,28 +38,32 @@
             @Html.DisplayNameFor(model => model.Categories)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Categories.Id)
+            @*prom id*@
+            @Html.DisplayFor(model => model.Categories.CategoryName)  
         </dd>
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Types)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Types.Id)
+            @Html.DisplayFor(model => model.Types.TypeName)
         </dd>
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Sports)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Sports.Id)
+            @Html.DisplayFor(model => model.Sports.SportName)
         </dd>
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Price)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Price)
+            <img src="@Html.DisplayFor(modelItem => modelItem.Image)" width="100">
+            @*@Html.DisplayFor(model => model.Price)*@
+            @*@Html.DisplayFor(modelItem => item.Image)
+            <img src="@Html.DisplayFor(modelItem => item.Image)" width="100">*@
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Image)
+            @*@Html.DisplayNameFor(model => model.Image)*@
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.Image)
@@ -67,6 +71,7 @@
     </dl>
 </div>
 <div>
+    <a asp-controller="Orders" asp-action="CreateWithProductId" asp-route-productId="@Model.Id">Купи</a>
     <a asp-action="Редактиране" asp-route-id="@Model?.Id">Реактиране</a> |
     <a asp-action="Index">Обратно към листа</a>
 </div>

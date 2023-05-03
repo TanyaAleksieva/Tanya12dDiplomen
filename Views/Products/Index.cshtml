@@ -86,6 +86,8 @@
                 <a asp-action="Edit" asp-route-id="@item.Id">Редактиране</a> |
                 <a asp-action="Details" asp-route-id="@item.Id">Детайли</a> |
                 <a asp-action="Delete" asp-route-id="@item.Id">Изтриване</a>
+                &nbsp;
+                <a asp-controller="Orders" asp-action="CreateWithProductId" asp-route-productId="@item.Id">Купи</a>
             </td>
         </tr>
 }

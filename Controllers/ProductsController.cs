@@ -52,9 +52,9 @@ namespace FleksTanya12d.Controllers
         [Authorize(Roles = "Admin")]
         public IActionResult Create()
         {
-            ViewData["CategoryId"] = new SelectList(_context.Categories, "Id", "CategoryName");  //
-            ViewData["SportId"] = new SelectList(_context.Sports, "Id", "SportName");  //
-            ViewData["TypeId"] = new SelectList(_context.Types, "Id", "TypeName");  //
+            ViewData["CategoryName"] = new SelectList(_context.Categories, "Id", "CategoryName");  //
+            ViewData["SportName"] = new SelectList(_context.Sports, "Id", "SportName");  //
+            ViewData["TypeName"] = new SelectList(_context.Types, "Id", "TypeName");  //
             return View();
         }
 
@@ -70,9 +70,9 @@ namespace FleksTanya12d.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["CategoryId"] = new SelectList(_context.Categories, "Id", "CategoryName", product.CategoryId);  //
-            ViewData["SportId"] = new SelectList(_context.Sports, "Id", "SportName", product.SportId);
-            ViewData["TypeId"] = new SelectList(_context.Types, "Id", "TypeName", product.TypeId);
+            ViewData["CategoryName"] = new SelectList(_context.Categories, "Id", "CategoryName", product.CategoryId);  //
+            ViewData["SportName"] = new SelectList(_context.Sports, "Id", "SportName", product.SportId);
+            ViewData["TypeName"] = new SelectList(_context.Types, "Id", "TypeName", product.TypeId);
             return View(product);
         }
 

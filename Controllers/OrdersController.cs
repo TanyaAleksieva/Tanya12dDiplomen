@@ -69,6 +69,10 @@ namespace FleksTanya12d.Controllers
            // ViewData["UserId"] = new SelectList(_context.Users, "Id", "Id");
             return View();
         }
+        public IActionResult CreateWithProductId(int productId)
+        {
+            return View();
+        }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
