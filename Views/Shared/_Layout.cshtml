@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/FleksTanya12d.styles.css" asp-append-version="true" />
+   
 </head>
 <body>
     <header>
@@ -24,11 +25,15 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Начало</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Информация</a>
                         </li>
+                        <li>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Products" asp-action="Index">Дрехи</a>
+                        </li>
+
                         @if (signInManager.IsSignedIn(User))
                         {
                             <li class="nav-item">
@@ -37,9 +42,13 @@
                             if (User.IsInRole("Admin"))
                             {
                                 <li class="nav-item">
-                                    <a class="nav-link text-dark" asp-area="" asp-controller="TypeProducts" asp-action="Index">Тип на продуктите</a>
-                                    <a class="nav-link text-dark" asp-area="" asp-controller="CaterogiesProducts" asp-action="Index">Категории на продуктите</a>
-                                    <a class="nav-link text-dark" asp-area="" asp-controller="SportProducts" asp-action="Index">Вид спорт</a>
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Types" asp-action="Index">Тип на продуктите</a>
+                                    </li>
+                                    <li>
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Categories" asp-action="Index">Категории на продуктите</a>
+                                </li>
+                                <li>
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Sports" asp-action="Index">Вид спорт</a>
                                 </li>
                             }
                         }

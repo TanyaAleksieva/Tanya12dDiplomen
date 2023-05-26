@@ -63,8 +63,14 @@ namespace FleksTanya12d.Controllers
         }
 
         // GET: Orders/Create
-        public IActionResult Create()
+        public IActionResult Create(int? productid)
         {
+            if (productid != null)
+            {
+                Order Orders = new Order();
+                Orders.ProductId = (int)productid;
+                return View(Orders);
+            }
             ViewData["ProductId"] = new SelectList(_context.Products, "Id", "Model");
            // ViewData["UserId"] = new SelectList(_context.Users, "Id", "Id");
             return View();
@@ -82,12 +88,12 @@ namespace FleksTanya12d.Controllers
             {
                 order.OrderedOn = DateTime.Now;
                 order.UserId = _userManager.GetUserId(User);
-                _context.Orders.Add(order);
+                _context.Add(order);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
             ViewData["ProductId"] = new SelectList(_context.Products, "Id", "Model", order.ProductId);
-            //ViewData["UserId"] = new SelectList(_context.Users, "Id", "Id", order.UserId);
+            ViewData["UserId"] = new SelectList(_context.Users, "Id", "Id", order.UserId);
             return View(order);
         }
 

@@ -16,6 +16,8 @@ html {
 body {
     margin-bottom: 60px;
     /*background-color: #f79ffc;*/
-    background: rgb(80,3,97);
-    background: linear-gradient(90deg, rgba(80,3,97,1) 0%, rgba(161,47,199,1) 31%, rgba(206,65,249,1) 58%, rgba(90,1,109,1) 100%);
+    background-image: url("https://www.thespruce.com/thmb/8tnfYjf4Rax448XdW_vY6UpcQV8=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/SPR-how-to-get-rid-of-clothes-4138621-01-3530ed36a1eb4882be301b512b730da4.jpg");
+    /* background: rgb(80,3,97);*/
+    /* background: linear-gradient(90deg, rgba(80,3,97,1) 0%, rgba(161,47,199,1) 31%, rgba(206,65,249,1) 58%, rgba(90,1,109,1) 100%);*/
 }
+
