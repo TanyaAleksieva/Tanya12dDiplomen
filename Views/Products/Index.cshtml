@@ -13,16 +13,20 @@
     }
 </style>
 
-<p>
+@if (User.IsInRole("Admin"))
+{
+  <p>
     <a asp-action="Create">Създай нов</a>
-</p>
+  </p>  
+}
+
 <div class="row">
     @foreach (var item in Model)
     {
         <div class="col-sm-3">
-            <div class="card" style="width: 18rem;">
+            <div class="card" style="width: 18rem; color:black">
                 <img class="card-img-top" src="@Html.DisplayFor(modelItem => item.Image)" width="100" />
-                <div class="card-body">
+                <div class="card-body" style="background-color:cornflowerblue">
 
 
                     @* @Html.DisplayNameFor(model => model.Model)*@
@@ -65,8 +69,8 @@
 
                         <a asp-action="Delete" asp-route-id="@item.Id" class="material-symbols-outlined">Изтриване</a>
                     }
-                    <a asp-action="Details" asp-route-id="@item.Id" class="material-symbols-outlined" style="text-decoration:none; border:1px solid black;" >Информация</a>
-                    <a asp-controller="Orders" asp-action="Create" asp-route-id="@item.Id" class="material-symbols-outlined" style="text-decoration:none ; border:1px solid black;" >Поръчай</a>
+                    <a asp-action="Details" asp-route-id="@item.Id" class="material-symbols-outlined" style="text-decoration:none; border:1px solid black; color:darkblue;" >Информация</a>
+                    <a asp-controller="Orders" asp-action="Create" asp-route-id="@item.Id" class="material-symbols-outlined" style="text-decoration:none ; border:1px solid black; color:darkblue;">Поръчай</a>
 
                 </div>
             </div>

@@ -6,65 +6,91 @@
 
 <h1>Детайли</h1>
 
+<style>
+    body {
+        background: rgb(91,167,227);
+        background: linear-gradient(0deg, rgba(91,167,227,1) 0%, rgba(135,223,255,1) 31%, rgba(198,238,255,1) 100%);
+    }
+</style>
+
 <div>
     <h4>Продукт</h4>
     <hr />
     <dl class="row">
-        <dt class = "col-sm-2">
+            <dd class="col-sm-10">
+                <img src="@Html.DisplayFor(model => model.Image)" width="400" />
+            </dd>
+
+       @* <dt class = "col-sm-2">
+            Модел
             @Html.DisplayNameFor(model => model.Model)
-        </dt>
+        </dt>*@
         <dd class = "col-sm-10">
+            Модел -
             @Html.DisplayFor(model => model.Model)
         </dd>
-        <dt class = "col-sm-2">
+        @*<dt class = "col-sm-2">
+            Размер
             @Html.DisplayNameFor(model => model.Size)
-        </dt>
+        </dt>*@
         <dd class = "col-sm-10">
+            Размер -
             @Html.DisplayFor(model => model.Size)
         </dd>
-        <dt class = "col-sm-2">
+        @*<dt class = "col-sm-2">
+            Количество
             @Html.DisplayNameFor(model => model.Quantity)
-        </dt>
+        </dt>*@
         <dd class = "col-sm-10">
+            Количество -
             @Html.DisplayFor(model => model.Quantity)
         </dd>
-        <dt class = "col-sm-2">
+        @*<dt class = "col-sm-2">
+
             @Html.DisplayNameFor(model => model.Description)
-        </dt>
+        </dt>*@
         <dd class = "col-sm-10">
+            Описание -
             @Html.DisplayFor(model => model.Description)
         </dd>
-        <dt class = "col-sm-2">
+        @*<dt class = "col-sm-2">
+
             @Html.DisplayNameFor(model => model.Categories)
-        </dt>
+        </dt>*@
         <dd class = "col-sm-10">
             @*prom id*@
+            Катогория -
             @Html.DisplayFor(model => model.Categories.CategoryName)  
         </dd>
-        <dt class = "col-sm-2">
+       @* <dt class = "col-sm-2">
+
             @Html.DisplayNameFor(model => model.Types)
-        </dt>
+        </dt>*@
         <dd class = "col-sm-10">
+            Тип -
             @Html.DisplayFor(model => model.Types.TypeName)
         </dd>
-        <dt class = "col-sm-2">
+       @* <dt class = "col-sm-2">
+
             @Html.DisplayNameFor(model => model.Sports)
-        </dt>
+        </dt>*@
         <dd class = "col-sm-10">
+            Спорт - 
             @Html.DisplayFor(model => model.Sports.SportName)
         </dd>
-        <dt class = "col-sm-2">
+        @*<dt class = "col-sm-2">
+
             @Html.DisplayNameFor(model => model.Price)
-        </dt>
-        <dd class = "col-sm-10">
-            <img src="@Html.DisplayFor(modelItem => modelItem.Image)" width="100">
+        </dt>*@
+        @*<dd class = "col-sm-10">
+            <img src="@Html.DisplayFor(modelItem => modelItem.Image)" width="100">*@
             @*@Html.DisplayFor(model => model.Price)*@
             @*@Html.DisplayFor(modelItem => item.Image)
             <img src="@Html.DisplayFor(modelItem => item.Image)" width="100">*@
-        </dd>
-        <dt class = "col-sm-2">
+        @*</dd>*@
+        @*<dt class = "col-sm-2">*@
             @*@Html.DisplayNameFor(model => model.Image)*@
-        </dt>
+        @*</dt>*@
       @*  <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.Image)
         </dd>*@
