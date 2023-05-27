@@ -1,10 +1,17 @@
 ﻿@model IEnumerable<FleksTanya12d.Data.Product>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Дрехи";
 }
 
-<h1>Index</h1>
+<h1>Дрехи</h1>
+
+<style>
+    body {
+        background: rgb(91,167,227);
+        background: linear-gradient(0deg, rgba(91,167,227,1) 0%, rgba(135,223,255,1) 31%, rgba(198,238,255,1) 100%);
+    }
+</style>
 
 <p>
     <a asp-action="Create">Създай нов</a>
@@ -58,8 +65,8 @@
 
                         <a asp-action="Delete" asp-route-id="@item.Id" class="material-symbols-outlined">Изтриване</a>
                     }
-                    <a asp-action="Details" asp-route-id="@item.Id" class="material-symbols-outlined">Информация</a>
-                    <a asp-controller="Orders" asp-action="Create" asp-route-id="@item.Id" class="material-symbols-outlined" style="text-decoration:none">Поръчай</a>
+                    <a asp-action="Details" asp-route-id="@item.Id" class="material-symbols-outlined" style="text-decoration:none; border:1px solid black;" >Информация</a>
+                    <a asp-controller="Orders" asp-action="Create" asp-route-id="@item.Id" class="material-symbols-outlined" style="text-decoration:none ; border:1px solid black;" >Поръчай</a>
 
                 </div>
             </div>
