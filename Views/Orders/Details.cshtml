@@ -4,32 +4,43 @@
     ViewData["Title"] = "Детайли";
 }
 
-<h1>Details</h1>
+<h1>Детайли</h1>
+
+<style>
+    body {
+        background: rgb(91,167,227);
+        background: linear-gradient(0deg, rgba(91,167,227,1) 0%, rgba(135,223,255,1) 31%, rgba(198,238,255,1) 100%);
+    }
+</style>
 
 <div>
-    <h4>Order</h4>
+    <h4>Поръчка</h4>
     <hr />
     <dl class="row">
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Products)
+            Продукти
+            @*@Html.DisplayNameFor(model => model.Products)*@
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.Products.Id)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Users)
+            Модел
+            @*@Html.DisplayNameFor(model => model.Users)*@
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.Users.Id)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Quantity)
+            Количество
+           @* @Html.DisplayNameFor(model => model.Quantity)*@
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.Quantity)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.OrderedOn)
+            Поръчано
+           @* @Html.DisplayNameFor(model => model.OrderedOn)*@
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.OrderedOn)

@@ -4,9 +4,16 @@
     ViewData["Title"] = "Редактиране";
 }
 
-<h1>Edit</h1>
+<h1>Редактиране</h1>
 
-<h4>Order</h4>
+<style>
+    body {
+        background: rgb(91,167,227);
+        background: linear-gradient(0deg, rgba(91,167,227,1) 0%, rgba(135,223,255,1) 31%, rgba(198,238,255,1) 100%);
+    }
+</style>
+
+<h4>Поръчка</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -14,12 +21,14 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="Id" />
             <div class="form-group">
-                <label asp-for="ProductId" class="control-label"></label>
+                @*<label asp-for="ProductId" class="control-label"></label>*@
+                Продукт
                 <select asp-for="ProductId" class="form-control" asp-items="ViewBag.ProductId"></select>
                 <span asp-validation-for="ProductId" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="UserId" class="control-label"></label>
+                @*<label asp-for="UserId" class="control-label"></label>*@
+                Клиент
                 <select asp-for="UserId" class="form-control" asp-items="ViewBag.UserId"></select>
                 <span asp-validation-for="UserId" class="text-danger"></span>
             </div>
@@ -29,12 +38,13 @@
                 <span asp-validation-for="Quantity" class="text-danger"></span>
             </div>*@
             <div class="form-group">
-                <label asp-for="OrderedOn" class="control-label"></label>
+               @* <label asp-for="OrderedOn" class="control-label"></label>*@
+               Поръчано
                 <input asp-for="OrderedOn" class="form-control" />
                 <span asp-validation-for="OrderedOn" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
+                <input type="submit" value="Запази" class="btn btn-primary" />
             </div>
         </form>
     </div>

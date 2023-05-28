@@ -4,20 +4,29 @@
     ViewData["Title"] = "Детайли";
 }
 
-<h1>Details</h1>
+<h1>Детайли</h1>
+
+<style>
+    body {
+        background: rgb(91,167,227);
+        background: linear-gradient(0deg, rgba(91,167,227,1) 0%, rgba(135,223,255,1) 31%, rgba(198,238,255,1) 100%);
+    }
+</style>
 
 <div>
-    <h4>Sport</h4>
+    <h4>Спорт</h4>
     <hr />
     <dl class="row">
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.SportName)
+            Име на спорта
+           @* @Html.DisplayNameFor(model => model.SportName)*@
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.SportName)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Description)
+            Описание
+            @*@Html.DisplayNameFor(model => model.Description)*@
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.Description)
@@ -25,6 +34,6 @@
     </dl>
 </div>
 <div>
-    <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
+    <a asp-action="Edit" asp-route-id="@Model?.Id">Редактиране</a> |
     <a asp-action="Index">Обратно към листа</a>
 </div>

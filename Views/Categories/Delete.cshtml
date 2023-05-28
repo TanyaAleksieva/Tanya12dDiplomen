@@ -4,15 +4,23 @@
     ViewData["Title"] = "Изтриване";
 }
 
-<h1>Delete</h1>
+<h1>Изтриване</h1>
+
+<style>
+    body {
+        background: rgb(91,167,227);
+        background: linear-gradient(0deg, rgba(91,167,227,1) 0%, rgba(135,223,255,1) 31%, rgba(198,238,255,1) 100%);
+    }
+</style>
 
 <h3>Сигурен ли си, че искаш да изтриеш това?</h3>
 <div>
-    <h4>Category</h4>
+    <h4>Категория</h4>
     <hr />
     <dl class="row">
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.CategoryName)
+            Категория
+            @*@Html.DisplayNameFor(model => model.CategoryName)*@
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.CategoryName)
@@ -21,7 +29,7 @@
     
     <form asp-action="Delete">
         <input type="hidden" asp-for="Id" />
-        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <input type="submit" value="Изтрий" class="btn btn-danger" /> |
         <a asp-action="Index">Обратно към листа</a>
     </form>
 </div>

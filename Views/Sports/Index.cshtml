@@ -34,10 +34,12 @@
 @foreach (var item in Model) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.SportName)
+                    Име на спорта
+                @*@Html.DisplayFor(modelItem => item.SportName)*@
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Description)
+                    Описание
+               @* @Html.DisplayFor(modelItem => item.Description)*@
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.Id">Редактиране</a> |

@@ -65,9 +65,9 @@
                     <br>
                     @if (User.IsInRole("Admin"))
                     {
-                        <a asp-action="Edit" asp-route-id="@item.Id" class="material-symbols-outlined">Редактиране</a>
+                        <a asp-action="Edit" asp-route-id="@item.Id" class="material-symbols-outlined" style="text-decoration:none; border:1px solid black; color:darkblue;">Редактиране</a>
 
-                        <a asp-action="Delete" asp-route-id="@item.Id" class="material-symbols-outlined">Изтриване</a>
+                        <a asp-action="Delete" asp-route-id="@item.Id" class="material-symbols-outlined" style="text-decoration:none; border:1px solid black; color:darkblue;">Изтриване</a>
                     }
                     <a asp-action="Details" asp-route-id="@item.Id" class="material-symbols-outlined" style="text-decoration:none; border:1px solid black; color:darkblue;" >Информация</a>
                     <a asp-controller="Orders" asp-action="Create" asp-route-id="@item.Id" class="material-symbols-outlined" style="text-decoration:none ; border:1px solid black; color:darkblue;">Поръчай</a>

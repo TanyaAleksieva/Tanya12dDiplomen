@@ -4,21 +4,29 @@
     ViewData["Title"] = "Създаване";
 }
 
-<h1>Create</h1>
+<h1>Създаване</h1>
 
-<h4>Type</h4>
+<style>
+    body {
+        background: rgb(91,167,227);
+        background: linear-gradient(0deg, rgba(91,167,227,1) 0%, rgba(135,223,255,1) 31%, rgba(198,238,255,1) 100%);
+    }
+</style>
+
+<h4>Тип</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="TypeName" class="control-label"></label>
+                @*<label asp-for="TypeName" class="control-label"></label>*@
+                Тип
                 <input asp-for="TypeName" class="form-control" />
                 <span asp-validation-for="TypeName" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <input type="submit" value="Създай" class="btn btn-primary" />
             </div>
         </form>
     </div>
