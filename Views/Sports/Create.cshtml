@@ -20,12 +20,14 @@
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="SportName" class="control-label"></label>
+                @*<label asp-for="SportName" class="control-label"></label>*@
+                Спорт
                 <input asp-for="SportName" class="form-control" />
                 <span asp-validation-for="SportName" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Description" class="control-label"></label>
+                @*<label asp-for="Description" class="control-label"></label>*@
+                Описание
                 <input asp-for="Description" class="form-control" />
                 <span asp-validation-for="Description" class="text-danger"></span>
             </div>

@@ -20,44 +20,53 @@
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="Model" class="control-label"></label>
+               @* <label asp-for="Model" class="control-label"></label>*@
+                Модел
                 <input asp-for="Model" class="form-control" />
                 <span asp-validation-for="Model" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Size" class="control-label"></label>
+                @*<label asp-for="Size" class="control-label"></label>*@
+                Размер
                 <input asp-for="Size" class="form-control" />
                 <span asp-validation-for="Size" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Quantity" class="control-label"></label>
+               @* <label asp-for="Quantity" class="control-label"></label>*@
+                Количество
                 <input asp-for="Quantity" class="form-control" />
                 <span asp-validation-for="Quantity" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Description" class="control-label"></label>
+               @* <label asp-for="Description" class="control-label"></label>*@
+                Описание
                 <input asp-for="Description" class="form-control" />
                 <span asp-validation-for="Description" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="CategoryId" class="control-label"></label>
+                @*<label asp-for="CategoryId" class="control-label"></label>*@
+                Категория
                 <select asp-for="CategoryId" class ="form-control" asp-items="ViewBag.CategoryName"></select>
             </div>
             <div class="form-group">
-                <label asp-for="TypeId" class="control-label"></label>
+                @*<label asp-for="TypeId" class="control-label"></label>*@
+                Тип
                 <select asp-for="TypeId" class ="form-control" asp-items="ViewBag.TypeName"></select>
             </div>
             <div class="form-group">
-                <label asp-for="SportId" class="control-label"></label>
+               @* <label asp-for="SportId" class="control-label"></label>*@
+                Спорт
                 <select asp-for="SportId" class ="form-control" asp-items="ViewBag.SportName"></select>
             </div>
             <div class="form-group">
-                <label asp-for="Price" class="control-label"></label>
+               @* <label asp-for="Price" class="control-label"></label>*@
+                Цена
                 <input asp-for="Price" class="form-control" />
                 <span asp-validation-for="Price" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Image" class="control-label"></label>
+                @*<label asp-for="Image" class="control-label"></label>*@
+                Снимка
                 <input asp-for="Image" class="form-control" />
                 <span asp-validation-for="Image" class="text-danger"></span>
             </div>

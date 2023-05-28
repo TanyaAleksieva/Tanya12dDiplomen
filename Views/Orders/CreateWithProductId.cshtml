@@ -31,17 +31,19 @@
                 <select asp-for="UserId" class ="form-control" asp-items="ViewBag.UserId"></select>
             </div>*@
             <div class="form-group">
-                <label asp-for="Quantity" class="control-label"></label>
+               @* <label asp-for="Quantity" class="control-label"></label>*@
+               Количество
                 <input asp-for="Quantity" class="form-control" />
                 <span asp-validation-for="Quantity" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="OrderedOn" class="control-label"></label>
+                @*<label asp-for="OrderedOn" class="control-label"></label>*@
+                Поръчано
                 <input asp-for="OrderedOn" class="form-control" />
                 <span asp-validation-for="OrderedOn" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <input type="submit" value="Създай" class="btn btn-primary" />
             </div>
         </form>
     </div>
